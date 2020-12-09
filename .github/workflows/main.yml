@@ -1,0 +1,25 @@
+name: Download file from url and save it as artifact
+on:
+  push:
+    branches:
+      - main
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: clone repository
+        uses: actions/checkout@v2
+
+      - uses: suisei-cn/actions-download-file@v1
+        id: downloadfile
+        name: Download file
+        with:
+          url: ${{ github.event.head_commit.message }}
+          target: tmp/
+
+      - name: save output
+        uses: actions/upload-artifact@v1
+        with:
+          name: downloadedFile
+          path: tmp/
