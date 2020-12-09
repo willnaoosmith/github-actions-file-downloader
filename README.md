@@ -1,4 +1,4 @@
-# Github-actions-nmap-scanner
+# Github-actions-file-downloader
 Download a file using github actions
 
 ## How to use it:
